@@ -1,0 +1,137 @@
+<template>
+	<view class="content">
+		<nav-bar backState="1000" bgColor="#379FFF" bgColorAngle="45" fontColor="#FFF" title="出入记录" />
+		
+			  <easy-select ref="easySelect" size="medium" :value="selecValue" @selectOne="selectOne" class='menu'></easy-select>
+			<!-- <ms-dropdown-menu>
+				<ms-dropdown-item v-model="value1" :list="list"></ms-dropdown-item>
+			</ms-dropdown-menu>	 -->
+		 
+		<view class="detail">
+			<view class="detailContent">
+				<view class="d-1">
+					<view class="label">司机</view>
+					<view class="matter">李四</view>
+				</view>
+				<view class="d-1">
+					<view class="label">联系电话</view>
+					<view class="matter">15511369937</view>
+				</view>
+			</view>
+			<view class="detailContent">
+				<view class="d-2">
+					<view class="label" style="width: 20%;">车牌号</view>
+					<view class="matter">京A 88888</view>
+				</view>
+			</view>
+			<view class="detailContent">
+				<view class="d-2">
+					<view class="label" style="width: 20%;">时间</view>
+					<view class="matter">2020.10.10 15:38</view>
+				</view>
+			</view>
+			<view class="detailContent">
+				<view class="label" style="width: auto;">一号工地</view>
+				<image class="arrows" src="../../static/construction/arrows.png"></image>
+				<view class="label" style="width: auto;">堆场一号</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		components: {
+		},
+		data() {
+			return {
+				  selecValue: '双皮奶',
+				list: [
+					{
+						text: '全部堆场',
+						value: 0
+					},
+					{
+						text: '堆场一号',
+						value: 1
+					},
+					{
+						text: '堆场二号',
+						value: 2
+					}
+				],
+				value1: 1,
+			}
+		},
+		onLoad() {
+	
+		},
+		methods: {
+			   selectOne(options) {
+			            this.selecValue = options.label
+						console.log(options.value)
+			        },
+			        useOutClickSide() {
+			            this.$refs.easySelect.hideOptions && this.$refs.easySelect.hideOptions()
+			        }
+		}
+	}
+</script>
+
+<style scoped lang="scss">
+	.content{
+		padding: 30rpx 32rpx;
+	}
+	.detail{
+		min-height: 180rpx;
+		background: #FFFFFF;
+		box-shadow: 1px 2px 13px 0px rgba(226, 226, 226, 0.6);
+		border-radius: 10rpx;
+		margin-top: 30rpx;
+		padding: 20rpx;
+	}
+	.detailContent{
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		margin-top: 20rpx;
+		.d-1{
+			width: 50%;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		}
+		.d-2{
+			width: 100%;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		}
+		.arrows{
+			width: 80rpx;
+			height: 20rpx;
+			margin: 0 20rpx;
+		}
+	}
+	.label{
+		width: 40%;
+		font-size: 26rpx;
+		font-family: PingFang SC;
+		font-weight: 500;
+		color: #343434;
+	}
+	.matter{
+		font-size: 26rpx;
+		font-family: PingFang SC;
+		font-weight: 500;
+		color: #666666;
+		margin-left: 10rpx;
+	}
+	.menu{
+		height: 70rpx;
+		background: #FFFFFF;
+		box-shadow: 0px 2px 13px 0px rgba(226, 226, 226, 0.6);
+		border-radius: 5px;
+		box-sizing: border-box;
+	}
+</style>

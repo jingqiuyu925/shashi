@@ -1,0 +1,324 @@
+<template>
+	<view>
+		<nav-bar backState="1000" bgColor="#379FFF" bgColorAngle="45" fontColor="#FFF" title="审核记录" />
+		<view class="content">
+			<view class="bar">
+				<view class="titleBox" :class="{title:flag1}" @click="flagChange1">待审核</view>
+				<view class="titleBox" :class="{title:flag2}" @click="flagChange2">已通过</view>
+				<view class="titleBox" :class="{title:flag3}" @click="flagChange3">未通过</view>
+			</view>
+			<!-- 待审核 -->
+			<view class="detail" v-if="flag1">
+				<view class="sign">
+					<image src="../../static/construction/wait.png"></image>
+					<view>待审核</view>
+				</view>
+				<view class="detailContent">
+					<view class="d-1">
+						<view class="label">提交人</view>
+						<view class="matter">李四</view>
+					</view>
+					<view class="d-1">
+						<view class="label">联系电话</view>
+						<view class="matter">15511369937</view>
+					</view>
+				</view>
+				<view class="detailContent">
+					<view class="d-1">
+						<view class="label">车牌号</view>
+						<view class="matter">京A88888</view>
+					</view>
+					<view class="d-1">
+						<view class="label">指定堆场</view>
+						<view class="matter">堆场一号</view>
+					</view>
+				</view>
+				<view class="detailContent">
+					<view class="d-2">
+						<view class="label" style="width: 20%;">提交时间</view>
+						<view class="matter">2020.10.10 16：25</view>
+					</view>
+				</view>
+				<view class="detailContent">
+					<view class="d-2">
+						<view class="label" style="width: 20%;">备注</view>
+						<view class="matter">无数据</view>
+					</view>
+				</view>
+				<view class="button">
+					<view class="btn"  @click="open">不通过</view>
+					<view class="btn btn1"  >通过</view>
+				</view>
+			</view>
+			<!-- 已通过 -->
+			<view class="detail" style="height:280rpx ;" v-else-if="flag2">
+				<view class="sign">
+					<image src="../../static/construction/pass.png"></image>
+					<view>已通过</view>
+				</view>
+				<view class="detailContent">
+					<view class="d-1">
+						<view class="label">提交人</view>
+						<view class="matter">李四</view>
+					</view>
+					<view class="d-1">
+						<view class="label">联系电话</view>
+						<view class="matter">15511369937</view>
+					</view>
+				</view>
+				<view class="detailContent">
+					<view class="d-1">
+						<view class="label">车牌号</view>
+						<view class="matter">京A88888</view>
+					</view>
+					<view class="d-1">
+						<view class="label">指定堆场</view>
+						<view class="matter">堆场一号</view>
+					</view>
+				</view>
+				<view class="detailContent">
+					<view class="d-2">
+						<view class="label" style="width: 20%;">提交时间</view>
+						<view class="matter">2020.10.10 16：25</view>
+					</view>
+				</view>
+				<view class="detailContent">
+					<view class="d-2">
+						<view class="label" style="width: 20%;">备注</view>
+						<view class="matter">无数据</view>
+					</view>
+				</view>
+			</view>
+			<!-- 未通过 -->
+			<view class="detail" style="height:340rpx ;" v-else>
+				<view class="sign">
+					<image src="../../static/construction/error.png"></image>
+					<view>未通过</view>
+				</view>
+				<view class="detailContent">
+					<view class="d-1">
+						<view class="label">提交人</view>
+						<view class="matter">李四</view>
+					</view>
+					<view class="d-1">
+						<view class="label">联系电话</view>
+						<view class="matter">15511369937</view>
+					</view>
+				</view>
+				<view class="detailContent">
+					<view class="d-1">
+						<view class="label">车牌号</view>
+						<view class="matter">京A88888</view>
+					</view>
+					<view class="d-1">
+						<view class="label">指定堆场</view>
+						<view class="matter">堆场一号</view>
+					</view>
+				</view>
+				<view class="detailContent">
+					<view class="d-2">
+						<view class="label" style="width: 20%;">提交时间</view>
+						<view class="matter">2020.10.10 16：25</view>
+					</view>
+				</view>
+				<view class="detailContent">
+					<view class="d-2">
+						<view class="label" style="width: 20%;">备注</view>
+						<view class="matter">无数据</view>
+					</view>
+				</view>
+				<view class="detailContent">
+					<view class="d-2">
+						<view class="label" style="width: 21%;">未通过原因</view>
+						<view class="matter">不符合规范</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		
+		<uni-popup ref="popup" type="center">
+			<view class="popup">
+				<textarea placeholder="输入原因" v-model="reason"></textarea>
+				<view class="button">
+					<view class="btn" @click="close">取消</view>
+					<view class="btn btn1" @click="confirm">确定</view>
+				</view>
+			</view>
+		</uni-popup>
+	</view>
+</template>
+
+<script>
+	import uniPopup from '@/components/uni-popup/uni-popup.vue'
+	export default {
+		components: {
+			uniPopup
+		},
+		data() {
+			return {
+				flag1:true,
+				flag2:false,
+				flag3:false,
+				reason:''
+			}
+		},
+		onLoad() {
+	
+		},
+		methods: {
+			flagChange1() {
+				this.flag1  = !this.flag1
+				this.flag2 = this.flag3 =false
+			},
+			flagChange2() {
+				this.flag2  = !this.flag2
+				this.flag1 = this.flag3 =false
+			},
+			flagChange3() {
+				this.flag3  = !this.flag3
+				this.flag2 = this.flag1 =false
+			},
+			open(){
+				this.$refs.popup.open()
+			},
+			close() {
+				this.$refs.popup.close()
+			},
+			confirm() {
+				console.log(this.reason)
+				this.$refs.popup.close()
+			}
+		}
+	}
+</script>
+
+<style scoped lang="scss">
+	.content{
+		padding: 34rpx 36rpx;
+	}
+	.bar{
+		width: 100%;
+		height: 72rpx;
+		background: #E9ECEE;
+		border-radius:10rpx;
+		padding: 0 2rpx;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.titleBox{
+		width: 33%;
+		height: 64rpx;
+		font-size: 30rpx;
+		font-family: PingFang SC;
+		font-weight: 500;	
+		color: #9A9A9A;
+		line-height: 64rpx;
+		text-align: center;
+	}
+	.title{
+		background: #FFFFFF;
+		border-radius: 10rpx;
+		color: #2284D8;
+	}
+	.detail{
+		margin-top: 25rpx;
+		height: 380rpx;
+		background: #FFFFFF;
+		box-shadow: 1px 2px 13px 0px rgba(226, 226, 226, 0.6);
+		border-radius: 10rpx;
+		padding: 32rpx;
+		// position: relative;
+	}
+	.sign{
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		image{
+			width: 27rpx;
+			height: 27rpx;
+		}
+		view{
+			margin-left: 10rpx;
+			font-size: 24rpx;
+			font-family: PingFang SC;
+			font-weight: 500;
+			color: #9A9A9A;
+		}
+	}
+	.detailContent{
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		margin-top: 21rpx;
+		.d-1{
+			width: 50%;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		}
+		.d-2{
+			width: 100%;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		}
+	}
+	.label{
+		width: 40%;
+		font-size: 26rpx;
+		font-family: PingFang SC;
+		font-weight: 500;
+		color: #343434;
+	}
+	.matter{
+		font-size: 26rpx;
+		font-family: PingFang SC;
+		font-weight: 500;
+		color: #666666;
+		margin-left: 10rpx;
+	}
+	.button{
+		margin-top: 50rpx;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		
+	}
+	.btn{
+		width: 48%;
+		height: 72rpx;
+		background: #57A3E5;
+		border-radius: 10rpx;
+		font-size: 30rpx;
+		font-family: PingFang SC;
+		font-weight: bold;
+		color: #FFFFFF;
+		line-height: 72rpx;
+		text-align: center;
+		// position: absolute;
+		// bottom: 32rpx;
+	}
+	.btn1{
+		background: #2284D8;
+		// position: absolute;
+		// left: 50%;
+		// bottom: 32rpx;
+	}
+	.popup{
+		width: 680rpx;
+		height: 300rpx;
+		background: #FFFFFF;
+		border-radius: 10rpx;
+		padding: 30rpx;
+		// position: relative;
+		textarea{
+			width: 100%;
+			height: 160rpx;
+			background: #E8EBEE;
+			border-radius:10rpx;
+			padding: 20rpx;
+			box-sizing: border-box;
+		}
+	}
+</style>

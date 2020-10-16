@@ -1,0 +1,70 @@
+{
+  "_from": "better-scroll@^2.0.3",
+  "_id": "better-scroll@2.0.4",
+  "_inBundle": false,
+  "_integrity": "sha512-ZpUxhDYMErpZRrOShpuoepUlXrJIRT8PO2+QqZOeqqDNcCQQdGc3w+DXJbUxKzOOEjyh/twcQ5oakb2I0wLXBg==",
+  "_location": "/better-scroll",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "better-scroll@^2.0.3",
+    "name": "better-scroll",
+    "escapedName": "better-scroll",
+    "rawSpec": "^2.0.3",
+    "saveSpec": null,
+    "fetchSpec": "^2.0.3"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/better-scroll/-/better-scroll-2.0.4.tgz",
+  "_shasum": "fee56f6158319065161f7970804c64438880179c",
+  "_spec": "better-scroll@^2.0.3",
+  "_where": "D:\\项目\\砂石系统",
+  "author": {
+    "name": "huangyi",
+    "email": "ustbhuangyi@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/ustbhuangyi/better-scroll/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@better-scroll/core": "^2.0.4",
+    "@better-scroll/mouse-wheel": "^2.0.4",
+    "@better-scroll/observe-dom": "^2.0.4",
+    "@better-scroll/pull-down": "^2.0.4",
+    "@better-scroll/pull-up": "^2.0.4",
+    "@better-scroll/scroll-bar": "^2.0.4",
+    "@better-scroll/slide": "^2.0.4",
+    "@better-scroll/wheel": "^2.0.4",
+    "@better-scroll/zoom": "^2.0.4"
+  },
+  "deprecated": false,
+  "description": "Full-featured BetterScroll",
+  "gitHead": "5a305c565dc81458a4140a572463bb872e67384a",
+  "homepage": "https://github.com/ustbhuangyi/better-scroll",
+  "keywords": [
+    "scroll",
+    "iscroll",
+    "javascript",
+    "typescript",
+    "ios"
+  ],
+  "license": "MIT",
+  "main": "dist/better-scroll.js",
+  "module": "dist/better-scroll.esm.js",
+  "name": "better-scroll",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ustbhuangyi/better-scroll.git",
+    "directory": "packages/better-scroll"
+  },
+  "scripts": {},
+  "typings": "dist/types/index.d.ts",
+  "version": "2.0.4"
+}

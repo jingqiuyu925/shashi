@@ -1,0 +1,21 @@
+{
+  "name": "sx",
+  "version": "1.0.0",
+  "description": "<p style=\"text-align: center;\"><img src=\"https://image.weilanwl.com/uni/UniAppReadme.jpg\" alt=\"ColorUI简介\"></img></p>",
+  "main": "main.js",
+  "dependencies": {
+    "ali-oss": "^6.1.1",
+    "axios": "^0.19.0",
+    "better-scroll": "^2.0.3",
+    "js-cookie": "^2.2.1",
+    "prettier": "^1.12.1",
+    "uni-request": "^1.0.2",
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
